@@ -1,6 +1,8 @@
 package com.lennon.kotlincoroutine.model
 
-class Repositorie (
+import com.google.gson.annotations.SerializedName
+
+class Repositorie(
     @SerializedName("id") val id: Long,
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
