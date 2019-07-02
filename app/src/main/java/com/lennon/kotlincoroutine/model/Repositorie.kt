@@ -7,5 +7,5 @@ class Repositorie(
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
     @SerializedName("forks") val forks: Long,
-    @SerializedName("stargazers_count") val stargazers_count: Long
+    @SerializedName("stargazersCount") val stargazersCount: Long
 )
