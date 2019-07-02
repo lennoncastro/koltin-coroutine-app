@@ -1,4 +1,4 @@
-package com.lennon.kotlincoroutine.ui.model.vo
+package com.lennon.kotlincoroutine.data.model.vo
 
 class RepositorieVO(
     val name: String,

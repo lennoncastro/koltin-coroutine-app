@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lennon.kotlincoroutine.R
-import com.lennon.kotlincoroutine.ui.model.vo.RepositorieVO
+import com.lennon.kotlincoroutine.data.model.vo.RepositorieVO
 
 class RepositorieAdapter(
     private val repositories: List<RepositorieVO>
