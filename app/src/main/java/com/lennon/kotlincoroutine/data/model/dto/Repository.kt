@@ -2,7 +2,7 @@ package com.lennon.kotlincoroutine.data.model.dto
 
 import com.google.gson.annotations.SerializedName
 
-class Repositorie(
+class Repository(
     @SerializedName("id") val id: Long,
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
