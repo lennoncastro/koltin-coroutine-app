@@ -1,4 +1,4 @@
-package com.lennon.kotlincoroutine.model
+package com.lennon.kotlincoroutine.data.model
 
 import com.google.gson.annotations.SerializedName
 
