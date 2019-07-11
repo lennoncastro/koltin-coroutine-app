@@ -10,7 +10,6 @@ import com.lennon.kotlincoroutine.viewmodel.RepositoryViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class HomeActivity : AppCompatActivity() {
 
     private val repositoryViewModel: RepositoryViewModel by viewModel()
