@@ -14,9 +14,7 @@ class RepositoryViewModel : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext = Main
 
-    private val viewModelJob = SupervisorJob()
-
-    private val viewModeScope = CoroutineScope(Main + viewModelJob)
+    private val viewModeScope = CoroutineScope(Main + SupervisorJob())
 
     var response = MutableLiveData<List<RepositoryVO>>()
 
