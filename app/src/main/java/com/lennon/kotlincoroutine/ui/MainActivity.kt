@@ -9,7 +9,7 @@ import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
-    private val repositoryViewModel: RepositoryViewModel by inject()
+    private val viewModel: RepositoryViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
