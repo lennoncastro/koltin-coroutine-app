@@ -1,15 +1,11 @@
 package com.lennon.kotlincoroutine.data
 
-import com.lennon.kotlincoroutine.data.model.dto.RepositoryResponse
-import retrofit2.Call
+import com.lennon.kotlincoroutine.data.model.dto.RepositoriesResponse
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface Service {
 
-    @GET("search/repositories?q=language:{language}&sort=stars&page={page}")
-    fun listRepos(
-        @Path("user") language: String,
-        @Path("page") page: Int
-    ): Call<List<RepositoryResponse>>
+    @GET("search/repositories?q=language:Java&sort=stars&page=1")
+    fun fetchRepositories(): Deferred<RepositoriesResponse>
 }
