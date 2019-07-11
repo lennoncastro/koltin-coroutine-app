@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.HomeActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/repositories"
         tools:listitem="@layout/item_repositorie"
-        tools:itemCount="6"
+        tools:itemCount="4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

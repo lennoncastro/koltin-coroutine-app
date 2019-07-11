@@ -32,7 +32,7 @@ class RepositoryAdapter(
         var name: TextView = view.findViewById(R.id.name)
         var description: TextView = view.findViewById(R.id.description)
         var login: TextView = view.findViewById(R.id.description)
-        var avatar: ImageView = view.findViewById(R.id.description)
+        var avatar: ImageView = view.findViewById(R.id.avatar)
         var forks: TextView = view.findViewById(R.id.forks)
         var stars: TextView = view.findViewById(R.id.stars)
 
