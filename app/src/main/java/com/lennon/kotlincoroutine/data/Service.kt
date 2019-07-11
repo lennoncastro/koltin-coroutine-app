@@ -1,4 +1,4 @@
-package com.lennon.kotlincoroutine.data.model
+package com.lennon.kotlincoroutine.data
 
 import com.lennon.kotlincoroutine.data.model.dto.RepositoryResponse
 import retrofit2.Call
