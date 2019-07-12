@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lennon.kotlincoroutine.R
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
+import com.squareup.picasso.Picasso
 
 class RepositoryAdapter(
     private val repositories: List<RepositoryVO>
@@ -43,6 +44,7 @@ class RepositoryAdapter(
             login.text = repository.login
             forks.text = repository.forks.toString()
             stars.text = repository.stars.toString()
+            Picasso.get().load(repository.avatar).into(avatar)
         }
     }
 }

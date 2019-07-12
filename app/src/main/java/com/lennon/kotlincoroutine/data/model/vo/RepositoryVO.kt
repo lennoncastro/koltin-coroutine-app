@@ -7,7 +7,8 @@ class RepositoryVO(
     val description: String,
     val login: String,
     val forks: Long,
-    val stars: Long
+    val stars: Long,
+    val avatar: String
 ) {
 
     companion object {
@@ -17,7 +18,8 @@ class RepositoryVO(
                 description = response.description,
                 login = response.name,
                 forks = response.forks,
-                stars = response.stargazersCount
+                stars = response.stargazersCount,
+                avatar = response.owner.avatarUrl
             )
         }
     }

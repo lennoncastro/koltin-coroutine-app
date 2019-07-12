@@ -7,5 +7,6 @@ class RepositoryResponse(
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
     @SerializedName("forks") val forks: Long,
-    @SerializedName("stargazersCount") val stargazersCount: Long
+    @SerializedName("stargazersCount") val stargazersCount: Long,
+    @SerializedName("owner") val owner: OwnerResponse
 )
