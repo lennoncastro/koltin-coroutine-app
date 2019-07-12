@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class RepositoryViewModel(
-    var repository: RepositoryImpl
+    private val repository: RepositoryImpl
 ) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext = Main
@@ -25,5 +25,4 @@ class RepositoryViewModel(
             response.value = repository.fetchRepositories("Java", 0)
         }
     }
-
 }

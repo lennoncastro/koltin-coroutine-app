@@ -13,7 +13,7 @@ val myModule : Module = module {
     }
 
     single {
-        RetrofitClient
+        RetrofitClient()
     }
 
     factory {
