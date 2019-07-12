@@ -62,6 +62,7 @@ dependencies {
 
     implementation("org.koin:koin-androidx-scope:$koin_version")
     implementation("org.koin:koin-androidx-viewmodel:$koin_version")
+    testCompile 'org.koin:koin-test:2.0.1'
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -72,5 +73,6 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.25.0'
     testImplementation 'org.robolectric:robolectric:4.3'
     testImplementation 'junit:junit:4.12'
+
 
 }
