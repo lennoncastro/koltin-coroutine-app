@@ -32,8 +32,6 @@ dependencies {
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.40")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2")
 
     //AndroidX
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
@@ -51,6 +49,7 @@ dependencies {
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.2"
 
     // AndroidX LiveData and ViewModel
     implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
@@ -62,13 +61,13 @@ dependencies {
 
     implementation("org.koin:koin-androidx-scope:$koin_version")
     implementation("org.koin:koin-androidx-viewmodel:$koin_version")
-    testCompile 'org.koin:koin-test:2.0.1'
+    testImplementation 'org.koin:koin-test:2.0.1'
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //For unit test porpuse
-    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation 'org.mockito:mockito-inline:2.21.0'
     testImplementation 'android.arch.core:core-testing:1.1.1'
     testImplementation 'org.mockito:mockito-core:2.25.0'
     testImplementation 'org.robolectric:robolectric:4.3'
