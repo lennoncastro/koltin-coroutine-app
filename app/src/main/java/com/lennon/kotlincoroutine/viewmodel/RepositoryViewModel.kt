@@ -1,14 +1,14 @@
 package com.lennon.kotlincoroutine.viewmodel
 
 import com.lennon.kotlincoroutine.data.ErrorResponse
-import com.lennon.kotlincoroutine.data.RepositoryImpl
-import com.lennon.kotlincoroutine.data.RequestResponseApi
+import com.lennon.kotlincoroutine.data.Repository
+import com.lennon.kotlincoroutine.data.RequestResponse
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
 import kotlinx.coroutines.launch
 
 class RepositoryViewModel(
-    private val repository: RepositoryImpl,
-    private val requestResponse: RequestResponseApi<List<RepositoryVO>>
+    private val repository: Repository,
+    private val requestResponse: RequestResponse<List<RepositoryVO>>
 ) : CoroutineViewModel() {
 
     fun fetchRepositories() {

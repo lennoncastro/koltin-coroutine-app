@@ -1,7 +1,9 @@
 package com.lennon.kotlincoroutine.di
 
 import com.lennon.kotlincoroutine.RetrofitClient
+import com.lennon.kotlincoroutine.data.Repository
 import com.lennon.kotlincoroutine.data.RepositoryImpl
+import com.lennon.kotlincoroutine.data.RequestResponse
 import com.lennon.kotlincoroutine.data.RequestResponseApi
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
 import com.lennon.kotlincoroutine.ui.RepositoryAdapter
@@ -20,7 +22,7 @@ val myModule : Module = module {
         RetrofitClient
     }
 
-    single {
+    single<Repository> {
         RepositoryImpl(get())
     }
 
@@ -28,7 +30,7 @@ val myModule : Module = module {
         RepositoryAdapter()
     }
 
-    single {
-        RequestResponseApi<List<RepositoryVO>>()
+    single<RequestResponse<List<RepositoryVO>>> {
+        RequestResponseApi()
     }
 }
