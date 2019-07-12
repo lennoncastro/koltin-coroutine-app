@@ -8,7 +8,15 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val myModule : Module = module {
-    viewModel { RepositoryViewModel() }
-    single { RetrofitClient }
-    factory { RepositoryImpl() }
+    viewModel {
+        RepositoryViewModel(get())
+    }
+
+    single {
+        RetrofitClient
+    }
+
+    factory {
+        RepositoryImpl(get())
+    }
 }

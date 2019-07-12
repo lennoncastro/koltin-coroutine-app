@@ -10,15 +10,15 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class RepositoryViewModel : ViewModel(), CoroutineScope {
+class RepositoryViewModel(
+    var repository: RepositoryImpl
+) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext = Main
 
     private val viewModeScope = CoroutineScope(Main + SupervisorJob())
 
     var response = MutableLiveData<List<RepositoryVO>>()
-
-    var repository = RepositoryImpl()
 
     fun fetchRepositories() {
         viewModeScope.launch {
