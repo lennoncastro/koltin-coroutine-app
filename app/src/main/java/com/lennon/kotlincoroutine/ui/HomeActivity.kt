@@ -58,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun onSuccessObserver() {
-        repositoryViewModel.successResponse.observe(this, Observer {
+        repositoryViewModel.onSuccess().observe(this, Observer {
             it?.let { repositoriesList ->
                 adapter.updateList(repositoriesList)
                 showRepositoriesList()
@@ -67,13 +67,14 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun onErrorObserver() {
-        repositoryViewModel.errorResponse.observe(this, Observer {
-            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+        repositoryViewModel.onError().observe(this, Observer {
+            if(it.showErrorMessage)
+                Toast.makeText(this, it.throwable.message, Toast.LENGTH_LONG).show()
         })
     }
 
     private fun onShowLoadingObserver() {
-        repositoryViewModel.showLoading.observe(this, Observer {
+        repositoryViewModel.showLoading().observe(this, Observer {
             it?.let { state ->
                 val (isEnabled, message) = if(state) {
                     Pair(false, getString(R.string.loading))

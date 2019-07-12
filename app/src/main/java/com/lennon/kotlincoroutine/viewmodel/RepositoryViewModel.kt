@@ -1,26 +1,35 @@
 package com.lennon.kotlincoroutine.viewmodel
 
+import com.lennon.kotlincoroutine.data.ErrorResponse
 import com.lennon.kotlincoroutine.data.RepositoryImpl
+import com.lennon.kotlincoroutine.data.RequestResponseApi
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
 import kotlinx.coroutines.launch
 
 class RepositoryViewModel(
-    private val repository: RepositoryImpl
-) : RequestViewModel<List<RepositoryVO>>() {
+    private val repository: RepositoryImpl,
+    private val requestResponse: RequestResponseApi<List<RepositoryVO>>
+) : CoroutineViewModel() {
 
     fun fetchRepositories() {
 
         viewModeScope.launch {
 
-            showLoading.value = true
+            requestResponse.showLoading.value = true
 
             try {
-                successResponse.value = repository.fetchRepositories("Java", 0)
+                requestResponse.successResponse.value = repository.fetchRepositories("Kotlin", 0)
             } catch (throwable: Throwable) {
-                errorResponse.value = throwable
+                requestResponse.errorResponse.value = ErrorResponse(throwable, true)
             }
 
-            showLoading.value = false
+            requestResponse.showLoading.value = false
         }
     }
+
+    fun onSuccess() = requestResponse.successResponse
+
+    fun onError() = requestResponse.errorResponse
+
+    fun showLoading() = requestResponse.showLoading
 }
