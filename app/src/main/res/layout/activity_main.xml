@@ -7,12 +7,19 @@
     tools:context=".ui.HomeActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/repositories"
+        android:visibility="gone"
+        android:id="@+id/repositories_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         tools:itemCount="4"
         tools:listitem="@layout/item_repositorie" />
+
+    <Button
+        android:id="@+id/fetch_repositories_btn"
+        android:text="@string/fetch_repositories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

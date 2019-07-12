@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Koroutine App</string>
+    <string name="fetch_repositories">Fetch repositories</string>
 </resources>

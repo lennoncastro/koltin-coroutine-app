@@ -18,11 +18,22 @@ class RepositoryViewModel(
 
     private val viewModeScope = CoroutineScope(Main + SupervisorJob())
 
-    var response = MutableLiveData<List<RepositoryVO>>()
+    var successResponse = MutableLiveData<List<RepositoryVO>>()
+
+    var errorResponse = MutableLiveData<Throwable>()
+
+    var showLoading = MutableLiveData<Boolean>()
 
     fun fetchRepositories() {
+        showLoading.value = true
         viewModeScope.launch {
-            response.value = repository.fetchRepositories("Java", 0)
+            try {
+                showLoading.value = false
+                successResponse.value = repository.fetchRepositories("Java", 0)
+            } catch (throwable: Throwable) {
+                showLoading.value = false
+                errorResponse.value = throwable
+            }
         }
     }
 }

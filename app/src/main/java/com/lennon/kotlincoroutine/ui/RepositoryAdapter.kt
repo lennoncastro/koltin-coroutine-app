@@ -10,10 +10,10 @@ import com.lennon.kotlincoroutine.R
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
 import com.squareup.picasso.Picasso
 
-class RepositoryAdapter(
-    private val repositories: List<RepositoryVO>
-) :
+class RepositoryAdapter :
     RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
+
+    private var items: MutableList<RepositoryVO> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -21,11 +21,16 @@ class RepositoryAdapter(
         return RepositoryViewHolder(view)
     }
 
-    override fun getItemCount() = repositories.size
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
-        val repository = repositories[position]
+        val repository = items[position]
         holder.bind(repository)
+    }
+
+    fun updateList(repositories: List<RepositoryVO>) {
+        items.addAll(repositories)
+        notifyDataSetChanged()
     }
 
     inner class RepositoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
