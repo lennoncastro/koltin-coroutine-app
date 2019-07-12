@@ -76,7 +76,7 @@ class HomeActivity : AppCompatActivity() {
         repositoryViewModel.showLoading.observe(this, Observer {
             it?.let { state ->
                 val message = if(state) "show loading..." else "hide loading..."
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         })
     }
