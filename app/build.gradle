@@ -22,6 +22,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
 }
 
 dependencies {
@@ -63,10 +66,14 @@ dependencies {
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    //Unit test
+    //For unit test porpuse
+    //JUnit 4
     testImplementation 'junit:junit:4.12'
 
-    //Espresso
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //Roboletric
+    testImplementation 'androidx.test:core:1.2.0'
+
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:2.25.0'
+
 }
