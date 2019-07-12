@@ -8,9 +8,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/repositories"
-        tools:listitem="@layout/item_repositorie"
-        tools:itemCount="4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_repositorie" />
 
 </LinearLayout>

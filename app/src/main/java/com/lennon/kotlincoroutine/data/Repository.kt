@@ -4,7 +4,7 @@ import com.lennon.kotlincoroutine.RetrofitClient
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
 
 class RepositoryImpl(
-    val service: RetrofitClient
+    private val service: RetrofitClient
 ): Repository {
 
     override suspend fun fetchRepositories(language: String, page: Int): List<RepositoryVO> {
@@ -13,7 +13,6 @@ class RepositoryImpl(
             .await()
             .response.map { RepositoryVO(it) }
     }
-
 }
 
 interface Repository {
