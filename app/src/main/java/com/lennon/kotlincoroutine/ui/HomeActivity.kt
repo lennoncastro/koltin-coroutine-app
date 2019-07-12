@@ -52,6 +52,11 @@ class HomeActivity : AppCompatActivity() {
         )
     }
 
+    private fun showRepositoriesList() {
+        fetch_repositories_btn.visibility = View.GONE
+        repositories_rv.visibility = View.VISIBLE
+    }
+
     private fun onSuccessObserver() {
         repositoryViewModel.successResponse.observe(this, Observer {
             it?.let { repositoriesList ->
@@ -59,11 +64,6 @@ class HomeActivity : AppCompatActivity() {
                 showRepositoriesList()
             }
         })
-    }
-
-    private fun showRepositoriesList() {
-        fetch_repositories_btn.visibility = View.GONE
-        repositories_rv.visibility = View.VISIBLE
     }
 
     private fun onErrorObserver() {
@@ -75,8 +75,14 @@ class HomeActivity : AppCompatActivity() {
     private fun onShowLoadingObserver() {
         repositoryViewModel.showLoading.observe(this, Observer {
             it?.let { state ->
-                val message = if(state) "show loading..." else "hide loading..."
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                val (isEnabled, message) = if(state) {
+                    Pair(false, getString(R.string.loading))
+                } else {
+                    Pair(true, getString(R.string.fetch_repositories))
+                }
+
+                fetch_repositories_btn.isEnabled = isEnabled
+                fetch_repositories_btn.text = message
             }
         })
     }
