@@ -48,8 +48,8 @@
         android:layout_marginLeft="8dp"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/forks_icon"
         app:layout_constraintStart_toEndOf="@id/forks_icon"
-        app:layout_constraintTop_toTopOf="@id/forks_icon"
         tools:text="@tools:sample/lorem" />
 
     <ImageView
@@ -73,8 +73,8 @@
         android:maxLength="10"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/stars_icon"
         app:layout_constraintStart_toEndOf="@id/stars_icon"
-        app:layout_constraintTop_toTopOf="@id/stars_icon"
         tools:text="@tools:sample/lorem" />
 
     <ImageView
