@@ -67,13 +67,10 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //For unit test porpuse
-    //JUnit 4
-    testImplementation 'junit:junit:4.12'
-
-    //Roboletric
-    testImplementation 'androidx.test:core:1.2.0'
-
-    // Mockito
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation 'android.arch.core:core-testing:1.1.1'
     testImplementation 'org.mockito:mockito-core:2.25.0'
+    testImplementation 'org.robolectric:robolectric:4.3'
+    testImplementation 'junit:junit:4.12'
 
 }
