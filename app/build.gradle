@@ -49,12 +49,12 @@ dependencies {
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.2"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.2"
 
     // AndroidX LiveData and ViewModel
     implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
 
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.0.0"
 
     //Koin
     def koin_version = '2.0.1'
