@@ -3,6 +3,7 @@ package com.lennon.kotlincoroutine.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.lennon.kotlincoroutine.data.ErrorResponse
 import com.lennon.kotlincoroutine.data.Repository
 import com.lennon.kotlincoroutine.data.RequestResponse
 import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
@@ -29,13 +30,16 @@ class RepositoryViewModelTest {
 
     @Rule
     @JvmField
-    var coroutinesTestRule = CoroutinesTestRule()
+    var coroutineTestRule = CoroutineTestRule()
 
     @Mock
-    private lateinit var observer: Observer<List<RepositoryVO>>
+    private lateinit var observerSuccessResponse: Observer<List<RepositoryVO>>
 
     @Mock
-    private lateinit var observerLoading: Observer<Boolean>
+    private lateinit var observerErrorResponse: Observer<ErrorResponse>
+
+    @Mock
+    private lateinit var observerShowLoading: Observer<Boolean>
 
     @Mock
     private lateinit var repository: Repository
@@ -54,27 +58,47 @@ class RepositoryViewModelTest {
     @Test
     fun whenFetchRepositories_verifyIfShowLoadingChanges() = runBlocking {
 
-        `when`(requestResponse.showLoading).thenReturn(MutableLiveData())
-        `when`(requestResponse.successResponse).thenReturn(MutableLiveData())
+        mockShowLoadingBehavior()
 
-        target.showLoading().observeForever(observerLoading)
+        mockSuccessResponse()
 
-        target.fetchRepositories()
+        target.showLoading().observeForever(observerShowLoading)
 
-        verify(observerLoading, times(2)).onChanged(any())
+        fetchRepositories()
+
+        verify(observerShowLoading, times(2)).onChanged(any())
     }
 
     @Test
     fun whenFetchRepositories_verifyIfSuccessResponseChanges() = runBlocking {
 
-        `when`(requestResponse.showLoading).thenReturn(MutableLiveData())
-        `when`(requestResponse.successResponse).thenReturn(MutableLiveData())
+        mockShowLoadingBehavior()
 
-        target.onSuccess().observeForever(observer)
+        mockSuccessResponse()
 
+        target.onSuccess().observeForever(observerSuccessResponse)
+
+        fetchRepositories()
+
+        verify(observerSuccessResponse).onChanged(anyList())
+    }
+
+    @Test
+    fun onFetchRepositoriesError_verifyIfErrorResponseChanges() = runBlocking {
+
+        mockShowLoadingBehavior()
+
+        mockErrorResponse()
+
+        target.onError().observeForever(observerErrorResponse)
+
+        fetchRepositories()
+
+        verify(observerErrorResponse).onChanged(any())
+    }
+
+    private fun fetchRepositories() {
         target.fetchRepositories()
-
-        verify(observer).onChanged(anyList())
     }
 
     private fun setupViewModel() {
@@ -88,4 +112,15 @@ class RepositoryViewModelTest {
         }
     }
 
+    private fun mockSuccessResponse() {
+        `when`(requestResponse.successResponse).thenReturn(MutableLiveData())
+    }
+
+    private fun mockErrorResponse() {
+        `when`(requestResponse.errorResponse).thenReturn(MutableLiveData())
+    }
+
+    private fun mockShowLoadingBehavior() {
+        `when`(requestResponse.showLoading).thenReturn(MutableLiveData())
+    }
 }
