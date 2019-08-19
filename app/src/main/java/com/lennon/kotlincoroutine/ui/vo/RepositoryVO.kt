@@ -1,4 +1,4 @@
-package com.lennon.kotlincoroutine.data.model.vo
+package com.lennon.kotlincoroutine.ui.vo
 
 import com.lennon.kotlincoroutine.data.model.dto.RepositoryResponse
 

@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.lennon.kotlincoroutine.data.ErrorResponse
 import com.lennon.kotlincoroutine.data.Repository
 import com.lennon.kotlincoroutine.data.RequestResponse
-import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
+import com.lennon.kotlincoroutine.ui.vo.RepositoryVO
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule

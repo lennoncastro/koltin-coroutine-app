@@ -1,7 +1,7 @@
 package com.lennon.kotlincoroutine.data
 
 import com.lennon.kotlincoroutine.RetrofitClient
-import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
+import com.lennon.kotlincoroutine.ui.vo.RepositoryVO
 
 class RepositoryImpl(
     private val retrofitClient: RetrofitClient

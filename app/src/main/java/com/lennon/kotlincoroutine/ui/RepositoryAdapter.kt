@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lennon.kotlincoroutine.R
-import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
+import com.lennon.kotlincoroutine.ui.vo.RepositoryVO
 import com.squareup.picasso.Picasso
 
 class RepositoryAdapter :

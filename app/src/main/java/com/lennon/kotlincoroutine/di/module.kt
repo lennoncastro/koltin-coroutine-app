@@ -5,7 +5,7 @@ import com.lennon.kotlincoroutine.data.Repository
 import com.lennon.kotlincoroutine.data.RepositoryImpl
 import com.lennon.kotlincoroutine.data.RequestResponse
 import com.lennon.kotlincoroutine.data.RequestResponseApi
-import com.lennon.kotlincoroutine.data.model.vo.RepositoryVO
+import com.lennon.kotlincoroutine.ui.vo.RepositoryVO
 import com.lennon.kotlincoroutine.ui.RepositoryAdapter
 import com.lennon.kotlincoroutine.viewmodel.RepositoryViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
