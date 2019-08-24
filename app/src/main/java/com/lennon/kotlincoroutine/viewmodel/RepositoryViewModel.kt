@@ -1,6 +1,6 @@
 package com.lennon.kotlincoroutine.viewmodel
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import com.lennon.kotlincoroutine.data.ErrorResponse
 import com.lennon.kotlincoroutine.data.Repository
 import com.lennon.kotlincoroutine.data.RequestResponse
@@ -28,9 +28,9 @@ class RepositoryViewModel(
         }
     }
 
-    fun onSuccess(): MutableLiveData<List<RepositoryVO>> = requestResponse.successResponse
+    fun onSuccess(): LiveData<List<RepositoryVO>> = requestResponse.successResponse
 
-    fun onError(): MutableLiveData<ErrorResponse> = requestResponse.errorResponse
+    fun onError(): LiveData<ErrorResponse> = requestResponse.errorResponse
 
-    fun showLoading(): MutableLiveData<Boolean> = requestResponse.showLoading
+    fun showLoading(): LiveData<Boolean> = requestResponse.showLoading
 }
