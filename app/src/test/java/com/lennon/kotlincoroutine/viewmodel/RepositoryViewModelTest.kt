@@ -109,7 +109,7 @@ class RepositoryViewModelTest {
 
     private fun mockRepositoryResponse() {
         runBlocking {
-            `when`(repository.fetchRepositories("Kotlin", 0)).thenReturn(listOf())
+            `when`(repository.fetchRepositories()).thenReturn(listOf())
         }
     }
 
