@@ -42,7 +42,6 @@ class RepositoryAdapter :
         var forks: TextView = view.findViewById(R.id.forks)
         var stars: TextView = view.findViewById(R.id.stars)
 
-
         fun bind(repository: RepositoryVO) {
             name.text = repository.name
             description.text = repository.description

@@ -16,7 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
 
-    private val repositoryViewModel: RepositoryViewModel by viewModel()
+    private val viewModel: RepositoryViewModel by viewModel()
 
     private val adapter: RepositoryAdapter by inject()
 
@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun fetchRepositories() {
-        repositoryViewModel.fetchRepositories()
+        viewModel.fetchRepositories()
     }
 
     private fun setupRepositoriesList() {
@@ -58,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun onSuccessObserver() {
-        repositoryViewModel.onSuccess().observe(this, Observer {
+        viewModel.onSuccess().observe(this, Observer {
             it?.let { repositoriesList ->
                 adapter.updateList(repositoriesList)
                 showRepositoriesList()
@@ -67,14 +67,14 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun onErrorObserver() {
-        repositoryViewModel.onError().observe(this, Observer {
+        viewModel.onError().observe(this, Observer {
             if(it.showErrorMessage)
                 Toast.makeText(this, it.throwable.message, Toast.LENGTH_LONG).show()
         })
     }
 
     private fun onShowLoadingObserver() {
-        repositoryViewModel.showLoading().observe(this, Observer {
+        viewModel.showLoading().observe(this, Observer {
             it?.let { state ->
                 val (isEnabled, message) = if(state) {
                     Pair(false, getString(R.string.loading))
