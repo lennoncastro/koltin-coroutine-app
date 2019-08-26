@@ -107,10 +107,8 @@ class RepositoryViewModelTest {
         target = RepositoryViewModel(repository, requestResponse, scope)
     }
 
-    private fun mockRepositoryResponse() {
-        runBlocking {
-            `when`(repository.fetchRepositories()).thenReturn(listOf())
-        }
+    private fun mockRepositoryResponse() = runBlocking {
+        `when`(repository.fetchRepositories()).thenReturn(listOf())
     }
 
     private fun mockSuccessResponse() {
