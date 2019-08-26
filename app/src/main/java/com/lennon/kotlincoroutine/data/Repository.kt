@@ -7,7 +7,7 @@ class RepositoryImpl(
     private val retrofitClient: RetrofitClient
 ): Repository {
 
-    override suspend fun fetchRepositories(language: String, page: Int): List<RepositoryVO> {
+    override suspend fun fetchRepositories(): List<RepositoryVO> {
         return retrofitClient.invoke().create(Service::class.java)
             .fetchRepositories()
             .await()
@@ -16,5 +16,5 @@ class RepositoryImpl(
 }
 
 interface Repository {
-    suspend fun fetchRepositories(language: String, page: Int): List<RepositoryVO>
+    suspend fun fetchRepositories(): List<RepositoryVO>
 }

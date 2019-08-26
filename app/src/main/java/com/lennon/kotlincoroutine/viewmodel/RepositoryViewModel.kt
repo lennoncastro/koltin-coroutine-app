@@ -15,11 +15,6 @@ class RepositoryViewModel(
     private val viewModeScope: CoroutineScope
 ) : ViewModel() {
 
-    companion object {
-        private const val LANGUAGE = "Kotlin"
-        private const val PAGE = 0
-    }
-
     fun fetchRepositories() {
 
         viewModeScope.launch {
@@ -27,7 +22,7 @@ class RepositoryViewModel(
             requestResponse.showLoading.value = true
 
             try {
-                requestResponse.successResponse.value = repository.fetchRepositories(LANGUAGE, PAGE)
+                requestResponse.successResponse.value = repository.fetchRepositories()
             } catch (throwable: Throwable) {
                 requestResponse.errorResponse.value = ErrorResponse(throwable, true)
             }
