@@ -7,6 +7,9 @@ import com.lennon.kotlincoroutine.data.ErrorResponse
 import com.lennon.kotlincoroutine.data.Repository
 import com.lennon.kotlincoroutine.data.RequestResponse
 import com.lennon.kotlincoroutine.ui.vo.RepositoryVO
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
@@ -14,11 +17,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.any
-import org.mockito.Mockito.anyList
-import org.mockito.Mockito.times
-import org.mockito.Mockito.verify
+import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 
 @RunWith(JUnit4::class)
@@ -46,6 +45,8 @@ class RepositoryViewModelTest {
 
     @Mock
     private lateinit var requestResponse: RequestResponse<List<RepositoryVO>>
+
+    private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
 
     private lateinit var target: RepositoryViewModel
 
@@ -103,7 +104,7 @@ class RepositoryViewModelTest {
 
     private fun setupViewModel() {
         mockRepositoryResponse()
-        target = RepositoryViewModel(repository, requestResponse)
+        target = RepositoryViewModel(repository, requestResponse, scope)
     }
 
     private fun mockRepositoryResponse() {
